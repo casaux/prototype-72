@@ -1,0 +1,499 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>myCASA</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="initial-scale=1">
+      <link rel="stylesheet" href="../mycasa-src-4.0/css/designsystem.min.css">
+      <link rel="stylesheet" href="../mycasa-src-4.0/css/casa.css">
+      <script type="text/javascript" src="../mycasa-src-4.0/js/designsystem.min.js"></script>
+      <script type="text/javascript" src="../mycasa-src-4.0/js/jquery.min.js"></script>
+      <script type="text/javascript" src="../mycasa-src-4.0/js/jquery.js"></script>
+      <script type="text/javascript">
+         /* page specific js */
+
+         $(document).on('change','input[name="radio-ex"]',function(){
+
+           var asicValue=$('input[name="radio-ex"]:checked').val();
+
+
+           var asicValue=$('input[name="radio-ex"]:checked').val();
+
+           if(asicValue=="casa"){
+             $("#asic-number").css("display","none");
+              $("#asic-casa-number").css("display","block");
+           } else {
+             $("#asic-number").css("display","block");
+              $("#asic-casa-number").css("display","none");
+           }
+
+
+
+
+
+           if(asicValue=="other"){
+             $("#asic-other").css("display","block");
+           } else {
+             $("#asic-other").css("display","none");
+           }
+
+
+            });
+
+      </script>
+      <style type="text/css">
+      #asic-other{display:none;}
+      </style>
+   </head>
+   <body class="live-demo au-body au-grid">
+      <main class="au-grid">
+         <div class="header">
+            <div class="container">
+               <div class="row">
+                  <div class="logo au-body au-body--dark">
+                     <a href="index.html"><img src="../mycasa-src/img/CASALOGO-white-i.svg"></a>
+                  </div>
+                  <div class="casa-menu">
+
+                  	<div id="dropdown-menu">
+						<div id="dd-menu"><a class="au-btn au-btn--dark menu" href="#"><img src="../mycasa-src/img/menu.png" height="20" />Menu</a></div>
+						<div id="dd-close"><a class="au-btn au-btn--dark menu" href="#"><img src="../mycasa-src/img/close.png" height="20" />Close</a><br />
+						<br />
+						<p id="mycasa-home"><a href="#">myCASA home</a></p>
+						<p><a href="#">Switch profile</a></p>
+						<p><a href="mycasa-signed-out.html">Sign out</a></p>
+						</div>
+
+
+                  </div>
+               </div></div>
+            </div>
+         </div>
+         <div class="body">
+			<div class="banner">
+				<div class=container>
+					<div class="row">
+					 <div class="col-md-12">
+				This service is currently in beta, we encourage you to <a href="feedback.html">provide feedback</a>
+				</div>
+				</div>
+			</div>
+		</div>
+         <div class="container">
+               <nav class="au-breadcrumbs" aria-label="breadcrumb">
+                  <ul class="au-link-list au-link-list--inline">
+                     <li><a href="#">myCASA</a></li>
+                     <li><abbr title="Aviation security identification card">ASIC</abbr> verification and photo lodgements</li>
+                  </ul>
+               </nav>
+			 <div class="casa-section">
+               <header class="au-header" role="banner">
+                  <h1 class="break desktop au-header-heading"><abbr title="Aviation security identification card">ASIC</abbr> verification and photo lodgement</h1>
+                  <a class="au-direction-link" href="javascript:history.back()">
+					<span class="au-direction-link__arrow au-direction-link__arrow--left" aria-hidden="true"></span>Back
+					</a>
+               </header>
+			 </div>
+
+<div class="row">
+               	<div class="col-xs-12 col-md-12 col-lg-6">
+
+                <h3><abbr title="Aviation security identification card">ASIC</abbr> card verification</h3>
+
+
+
+
+                <div class="au-form-group">
+                  <label for="select1" class="au-label">Issuing body</label>
+                  <span class="au-hint-text">Your issuing body is who you applied to and received your ASIC from. It may be printed on the front or back of your ASIC card. If you're unsure of this, please refer to any correspondence you received regarding your ASIC application or contact your flight school.</span>
+
+
+                  <div class="au-form-group">
+
+                    <div class="au-control-input">
+                        <input class="au-control-input__input" type="radio" name="radio-ex" id="radio-1" value="avid">
+                        <label class="au-control-input__text" for="radio-1"><p class="au-label">Aviation ID Australia</p></label>
+                    </div>
+
+                  </div>
+                  <div class="au-form-group">
+
+                  <div class="au-control-input">
+                      <input class="au-control-input__input" type="radio" name="radio-ex" id="radio-2" value="casa">
+                      <label class="au-control-input__text" for="radio-2"><p class="au-label">Civil Aviation Safety Authority</p>
+                      </label>
+                  </div>
+
+                </div>
+
+                <div class="au-form-group">
+
+                  <div class="au-control-input">
+                      <input class="au-control-input__input" type="radio" name="radio-ex" id="radio-4" value="vea">
+                      <label class="au-control-input__text" for="radio-4"><p class="au-label">Veritas (VEA)</p>
+                      </label>
+                  </div>
+
+                </div>
+                <div class="au-form-group">
+
+                  <div class="au-control-input">
+                      <input class="au-control-input__input" type="radio" name="radio-ex" id="radio-5" value="other">
+                      <label class="au-control-input__text" for="radio-5"><p class="au-label">Other provider</p>
+                      </label>
+
+                      <div class="casa-form-other-list" id="asic-other">
+                        <label for="select1" class="au-hint-text">Please select your provider from the list below</label>
+
+
+                      <select id="select1" class="au-select">
+
+                                      <!--optgroup label="General issuing bodies"-->
+
+                                      <option>
+
+                                      Aerodrome Management Services Pty Ltd
+
+                                      </option>
+                                      <option>
+
+                                      Airport Security (Security ID/ Midwest Solutions)
+
+                                      </option>
+
+                                      <option>
+
+                                      Airservices Australia
+
+                                      </option>
+
+
+
+
+
+
+
+
+
+                    <!--optgroup label="Airlines and air operators  "-->
+
+
+
+
+
+
+
+
+
+                    <!--optgroup label="Airports"-->
+
+                    <option>
+
+                    Adelaide Airport
+
+                    </option>
+
+
+
+                    <option>
+
+                    Alice Springs Airport
+
+                    </option>
+
+                    <option>
+
+                    Brisbane Airport
+
+                    </option>
+
+                    <option>
+
+                    Cairns Airport
+
+                    </option>
+
+                    <option>
+
+                    Canberra Airport (Capital Airport Group)
+
+                    </option>
+
+                    <option>
+
+                    Cobham Aviation Services Australia
+
+                    </option>
+
+
+
+                    <option>
+
+                    Coober Pedy Airport (District Council of Coober Pedy)
+
+                    </option>
+
+                    <option>
+
+                    Darwin International Airport
+
+                    </option>
+
+                    <option>
+
+                    Gold Coast Airport (Queensland Airports Ltd)
+
+                    </option>
+
+                    <option>
+
+                    Great Barrier Reef Airport (Hamilton Island Enterprises)
+
+                    </option>
+
+                    <option>
+
+                    Hobart International Airport
+
+                    </option>
+
+                    <option>
+
+                    Mackay Airport
+
+                    </option>
+
+                    <option>
+
+                    Melbourne Airport
+
+                    </option>
+
+                    <option>
+
+                    Newcastle Airport
+
+                    </option>
+
+                    <option>
+
+                    Perth Airport
+
+                    </option>
+
+                    <option>
+
+                    QANTAS
+
+                    </option>
+
+                    <option>
+
+                    Recreational Aviation Australia (RAA)
+
+                    </option>
+
+                    <option>
+
+                    Rockhampton Airport (Rockhampton Regional Council)
+
+                    </option>
+
+                    <option>
+
+                    Saint George Airport (Balonne Shire Council)
+
+                    </option>
+
+                    <option>
+
+                    Sunshine Coast Airport (Sunshine Coast Regional Council)
+
+                    </option>
+
+                    <option>
+
+                    Sydney Airport
+
+                    </option>
+
+
+
+                    <option>
+
+                    Toll Priority
+
+                    </option>
+
+
+
+                    <option>
+
+                    Virgin Australia Airlines
+
+                    </option>
+
+                    </select>
+
+
+                  </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+<div class="au-form-group">
+                        <label class="au-label" for="name">ASIC number as shown on card</label>
+
+                        <div id="asic-number">
+
+                          <span class="au-hint-text">Please enter the number shown on your ASIC. This is usually at the bottom of the ASIC and may contain letters and dashes. Please enter all the characters as shown on your ASIC.</span>
+                          <input type="text" class="au-text-input au-text-input--block" id="name"/>
+
+                        </div>
+                        <div id="asic-casa-number" style="display:none;">
+
+
+                          <span class="au-hint-text">Your CASA ASIC number is your ARN</span>
+                          <input type="text" class="au-text-input au-text-input--block" disabled value="1234567" id="name"/>
+<br />
+                          <label class="au-label" for="select1">ASIC issue number</label>
+                          <span class="au-hint-text">Your ASIC issue number appears after your ASIC number a dash.</span>
+
+                          <select id="select1" class="au-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="3">4</option>
+    <option value="3">5</option>
+    <option value="3">6</option>
+    <option value="3">7</option>
+    <option value="3">8</option>
+    <option value="3">9</option>
+    <option value="3">10</option>
+  </select>
+
+                        </div>
+
+
+
+
+
+          	</div>
+
+
+            <div class="au-form-group">
+                  <label class="au-label" for="name">First name as shown on card</label>
+                  <span class="au-hint-text">Please enter your first name as shown on card
+                  <input type="text" class="au-text-input au-text-input--block" id="name"/>
+            </div>
+
+            <div class="au-form-group">
+                  <label class="au-label" for="name">Family name as shown on card</label>
+                  <input type="text" class="au-text-input au-text-input--block" id="name2" value="Spence" disabled/>
+            </div>
+
+              </div>
+
+<h3>Lodgement of photo</h3>
+
+              <p>By giving your consent below CASA will receive and store your <abbr title="Aviation security identification card">ASIC</abbr> photo in the ways explained below.</p>
+              <ul>
+                <li>It will be stored on CASA’s licensing portal for access by authorised CASA officers</li>
+                <li>It will be stored on CASA’s Medical Records System for access by authorised CASA officers and your Designated Aviation Medical Examiner (<abbr title="Designated Aviation Medical Examiner">DAME</abbr>). This will also enable a <abbr title="Designated Aviation Medical Examiner">DAME</abbr> to verify under <abbr title="Civil Aviation Safety Regulations 1998">CASR</abbr> 67.170 that you are who you claim to be when being medically examined</li>
+                <li>displayed on your flight crew or air traffic control licence (iOS only)</li>
+              <li>otherwise disclosed in accordance with <a href="https://www.casa.gov.au/about-us/site-information/privacy-statement">CASA’s privacy statement</a></li>
+              </ul>
+
+<p>By giving your consent below CASA will verify your <abbr title="Aviation security identification card">ASIC</abbr> and will also receive and store your <abbr title="Aviation security identification card">ASIC</abbr> photo.</p>
+<p>If you do not consent to CASA using this photograph, you cannot download a digital view of your flight crew licence on your iPhone.</p>
+
+<div class="au-form-group">
+  <div class="au-callout casa-declaration">
+        <h3>Consent to check ASIC and use photograph</h3>
+    <p>I consent to my information being checked with the document issuer or official record holder via third party systems for the purpose of confirming the ASIC was issued and for Auscheck or any ASIC issuing body to disclose to CASA a copy of any photograph of myself that they hold.
+
+      </p>
+    <p>
+          <label class="au-control-input">
+          <input class="au-control-input__input" type="checkbox" name="checkbox-ex" id="declaration">
+            <span class="au-control-input__text form-text p-t-0">
+              I agree and understand the above conditions</span>
+            </label> </p>
+  </div>
+          </div>
+
+   				<div class="au-form-group">
+
+   				<a class="au-btn" href="licence-view-single.html">Next</a>
+
+
+
+
+
+				</div>
+
+            </div>
+			 </div>
+			 </div>
+		  </div>
+
+
+                    <div class="footer">
+<div class="banner">
+				<div class="container">
+					<div class="row">
+					 <div class="col-xs-12">
+				We are always looking for ways to improve our services. <a href="feedback.html">Please provide feedback on myCASA</a>.
+				</div>
+				</div>
+			</div>
+		</div>
+            <div class="footer-wrapper">
+               <iframe src="../mycasa-src-4.0/footer.html" frameborder="0" border="0" scrolling="no"></iframe>
+            </div>
+         </div>
+      </main>
+	   		  <script>
+		  $("input[name=radio-ex]").on("change", function () {
+        if ($(this).val() === "yes") {
+            $(".q-1").removeClass("casa-hidden");
+        } else if ($(this).val() === "no") {
+            $(".q-1").addClass("casa-hidden");
+        }
+    });
+
+
+			$("input[name=radio-ex2]").on("change", function () {
+        if ($(this).val() === "yes") {
+            $(".q-2").removeClass("casa-hidden");
+        } else if ($(this).val() === "no") {
+            $(".q-2").addClass("casa-hidden");
+        }
+    });
+
+			$("input[name=radio-ex3]").on("change", function () {
+        if ($(this).val() === "yes") {
+            $(".q-3").removeClass("casa-hidden");
+        } else if ($(this).val() === "no") {
+            $(".q-3").addClass("casa-hidden");
+        }
+    });
+
+			$("input[name=radio-ex4]").on("change", function () {
+        if ($(this).val() === "yes") {
+            $(".q-4").removeClass("casa-hidden");
+        } else if ($(this).val() === "no") {
+            $(".q-4").addClass("casa-hidden");
+        }
+    });
+		  </script>
+   </body>
+</html>

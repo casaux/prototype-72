@@ -1,0 +1,694 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>myCASA</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="initial-scale=1">
+      <link rel="stylesheet" href="../mycasa-src-4.0/css/designsystem.min.css">
+      <link rel="stylesheet" href="../mycasa-src-4.0/css/casa.css">
+      <script type="text/javascript" src="../mycasa-src-4.0/js/designsystem.min.js"></script>
+      <script type="text/javascript" src="../mycasa-src-4.0/js/jquery.min.js"></script>
+      <script type="text/javascript" src="../mycasa-src-4.0/js/jquery.js"></script>
+      <script type="text/javascript">
+      /* page specific js */
+
+      $(document).ready(function() {
+
+        var hashURL = window.location.hash;
+        hashURL = hashURL.substring(1,hashURL.length);
+
+
+
+       // alert(hashURL+"/"+hashURL.search("verify")+"/"+hashURL.search("suspended"));
+
+        if(hashURL.search("verify")!=-1){
+          $("div.casa-view-only").css("display","none");
+          $("div.casa-verify-only").css("display","block");
+          $("span.casa-view-only").css("display","none");
+          $("span.casa-verify-only").css("display","inline");
+        } else {
+          $("div.casa-view-only").css("display","block");
+          $("div.casa-verify-only").css("display","none");
+          $("span.casa-view-only").css("display","inline");
+          $("span.casa-verify-only").css("display","none");
+        }
+
+
+         if(hashURL.search("suspended")!=-1){
+             $("div.casa-status-suspended").css("display","block");
+             $("span.casa-status-suspended").css("display","inline");
+             $("span.casa-status-active").css("display","none");
+         }
+
+
+         if(
+           (hashURL.search("suspended")!=-1 && hashURL.search("verify")==-1)
+           ||
+           (hashURL.search("suspended")!=-1 && hashURL.search("verify")!=-1)
+           ||
+             (hashURL.search("suspended")==-1 && hashURL.search("verify")==-1)
+           ||
+             (hashURL.search("suspended")==0 && hashURL.search("verify")==-1)
+         ){
+           $("div.casa-status-verify-only div.au-page-alerts--success").css("display","none");
+         }
+
+
+
+        if(hashURL.search("asic")==-1){
+          $("div.casa-asic-show").css("display","none");
+          $("div.casa-asic-hide").css("display","block");
+        } else {
+          $("div.casa-asic-show").css("display","block");
+          $("div.casa-asic-hide").css("display","none");
+        }
+
+
+        if(hashURL.search("asic")!=-1 && hashURL.search("verified")!=-1){
+          $("div.casa-asic-verified").css("display","block");
+        } else {
+          $("div.casa-asic-verified").css("display","none");
+        }
+
+
+
+
+        $("#download").bind("click",function(){
+            $(".casa-modal").css("display","block");
+        });
+
+        $(".casa-modal-close").bind("click",function(){
+            $(".casa-modal").css("display","none");
+        });
+
+         $("#load-licence").bind("click",function(){
+             $("#loading").css("display","block");
+
+
+             setInterval(function(){
+               $("#licence").css("display","block");
+               $("#loader").css("display","none");
+             }, 1000);
+
+         });
+
+
+
+
+
+      });
+   </script>
+   <style type="text/css">
+      /* page specific css */
+      #wallet{position:absolute;top:0;left:0;z-index:99999;display:none;bottom:0;right:0;background:#fff;}
+
+
+       .casa-status-suspended{display:none;}
+       .casa-status-verified{display:none;}
+       .casa-asic-only{display:none;}
+
+       .casa-asic-verified{display:none;}
+
+       .casa-view-only nav, .casa-verify-only nav{margin-bottom:1rem}
+
+
+       #loading{background:rgba(0,0,0,0.2);position:absolute;top:0;left:0;z-index:9999999999;display:none;right:0;bottom:0}
+    #loading p{font-size:1.3rem;line-height:1.5rem;padding:1rem !important;background:#5c5c5c;color:#fff;font-weight:bold;width:250px;display:block; border-radius: 5px;text-align:center;margin:300px auto auto auto !important;}
+
+    #loading #loader{animation: rotation 2s infinite linear;}
+
+    #licence {display:none;position:absolute;top:0;right:0;bottom:0;left:0;z-index:9999999999999;background: #f2f2f7;}
+
+    @keyframes rotation {
+       from {
+         transform: rotate(0deg);
+       }
+       to {
+         transform: rotate(359deg);
+       }
+     }
+
+
+     .casa-modal{display:none;}
+
+   </style>
+   </head>
+   <body class="live-demo au-body au-grid">
+      <main class="au-grid">
+         <div class="header">
+            <div class="container">
+               <div class="row">
+                  <div class="logo au-body au-body--dark">
+                     <a href="index.html"><img src="../mycasa-src-3.0/img/CASALOGO-white-i.svg"></a>
+                  </div>
+                  </div>
+            </div>
+         </div>
+         <div class="body">
+			<div class="banner">
+				<div class=container>
+					<div class="row">
+					 <div class="col-md-12">
+				This service is currently in beta, we encourage you to <a href="../flight-review/feedback.html">provide feedback</a>
+				</div>
+				</div>
+			</div>
+		</div>
+         <div class="container">
+           <div class="casa-view-only">
+               <nav class="au-breadcrumbs" aria-label="breadcrumb">
+                  <ul class="au-link-list au-link-list--inline">
+                     <li><a href="#">myCASA</a></li>
+                     <li>Flight crew licence</li>
+                  </ul>
+               </nav>
+            </div>
+            <div class="casa-verify-only">
+               <nav class="au-breadcrumbs" aria-label="breadcrumb">
+                  <ul class="au-link-list au-link-list--inline">
+                     <li><a href="#">myCASA</a></li>
+                     <li><a href="#">Verify licence</a></li>
+                     <li>Licence details</li>
+                  </ul>
+               </nav>
+            </div>
+
+
+
+                          <div class="casa-modal">
+                             		   <div class="casa-modal-inner">
+                             			   <div class="casa-modal-header">
+                             				  <h3>Digital view of your flight crew licence</h3>
+
+                             				   <div class="casa-modal-close"><a href="#"><span>Close</span></a></div>
+
+
+                             			   </div>
+                             			   				<div class="casa-modal-body">
+
+                                              <p>There are two parts of the digital view of your flight crew licence. Note that this is only a view of your flight crew licence and you may not exercise the privileges of your flight crew licence unless you are in possession of your paper flight crew licence document.</p>
+
+                                              <p>The first part is what you see inside your Apple Wallet on your iPhone and contains a QR code that allows someone to verify and see the details of your licence as they appear on the CASA system.</p>
+
+                                              <p>The second part is all the details of your flight crew licence as appears on your paper licence. To access this view, follow the instructions below.</p>
+
+                                              <p><strong>Tap the 3 dots at the top right of your screen</strong></p>
+
+                          <p><img src="wallet1.png" /></p>
+
+                            <p><strong>Scroll down through the licence view to see all the details of your licence.</strong></p>
+
+                          <p><img src="wallet2.png" /></p>
+
+                          <p>You can add the digital view of your flight crew licence to your Apple Wallet below. </p>
+
+                          <p class="au-callout"><strong>
+                            Note that by adding the digital view of your flight crew licence to your Apple Wallet, you are consenting to your details being verified through the QR code on the front of the digital view to anyone you show the digital view to.
+
+
+                          </strong>
+
+                          </p>
+                          <br />
+                          <a href="#" id="load-licence"><img src="Add_to_Apple_Wallet_rgb_US-UK.svg" style="width:100%"></a>
+
+
+                                            </div>
+                             			 </div>
+                             	   </div>
+
+                           <div id="loading">
+                           <p>Loading licence.<br /> Please wait...<br />
+                           <img src="loader.png" id="loader">
+                           </div>
+
+                           <div id="licence">
+                             <img src="fcl.png">
+                           </div>
+
+
+                           <div class="casa-status-suspended">
+                              <div role="alert" class="au-body au-page-alerts au-page-alerts--error">
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12 col-lg-9">
+                                        <h3>Please review licence details</h3>
+                                        <p>This licence has suspensions against it. Please <a href="https://www.casa.gov.au/about-us/contact-us">contact CASA</a> for more information.</p>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+
+                          <div class="casa-status-verify-only">
+                             <div role="alert" class="au-body au-page-alerts au-page-alerts--success">
+                               <div class="row">
+                                   <div class="col-xs-12 col-md-12 col-lg-9">
+                                       <h3>Licence verified</h3>
+                                       <p>This licence is valid and in force</p>
+                                   </div>
+                               </div>
+                             </div>
+                         </div>
+
+                         <div class="casa-asic-verified">
+                            <div role="alert" class="au-body au-page-alerts au-page-alerts--success">
+                              <div class="row">
+                                  <div class="col-xs-12 col-md-12 col-lg-9">
+                                      <h3>ASIC verified and photo lodged successfully</h3>
+                                      <p>You can now download a digital view of your Flight Crew Licence to your iPhone
+</p>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+
+
+
+
+			 <div class="casa-section">
+               <header class="au-header" role="banner">
+                  <h1 class="break desktop au-header-heading">Flight crew licence (FCL)</h1>
+				   				   <a class="au-direction-link" href="javascript:history.back()">
+					<span class="au-direction-link__arrow au-direction-link__arrow--left" aria-hidden="true"></span>Back
+					</a>
+               </header>
+
+
+
+                 <div class="au-form-group casa-view-only">
+
+                   <div class="au-form-group casa-mobile-only casa-asic-hide">
+                                        <div class="au-callout">
+                                     <div class="row">
+                                        <div class="col-lg-9 col-xs-12">
+                                         <p>If you are a current ASIC holder you can now download a digital view of your Flight Crew Licence on your mobile device.
+
+                                           To do so you will need to verify your ASIC and consent to CASA using the photograph on your ASIC for your digital view of licence.</p>
+                                            
+                                            <p><strong>Please note, while the digital view of licence is available for both iOS and Android devices, photographs will only be displayed on iOS devices. Support for Android will be implemented at a later time.</strong></p>
+
+                                              				<div class="au-form-group">
+                                                               <a class="au-btn" href="asic-photo-consent.html">Verify your ASIC and lodge photo</a>
+
+
+
+
+
+                   				</div>
+
+
+
+                                        </div>
+                                     </div>
+                                  </div>
+</div>
+
+<div class="casa-view-only casa-asic-show">
+               <div class="au-form-group casa-mobile-only">
+                 <a class="au-btn" href="#" id="download">Download digital view of licence for iPhone</a>
+
+
+</div>
+</div>
+
+<div class="au-callout">
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <strong>Please note: CAR 5 licence holders must first transition to a <a href="https://www.casa.gov.au/node/25841">Part 61 licence</a> before submitting a licence reprint.</strong><br><br>
+
+                         These licence details reflect the current CASA view of your licence. If you have recently had any new ratings or endorsements added, it may take some time for these to be added to your licence in the CASA system.
+               <br />
+               <br />
+               If there are any errors on this licence, <a href="#">contact CASA</a><br><br>
+
+               Please note that this is only a view of your flight crew licence. You may not exercise the privileges of your flight crew licence unless you are in possession of your paper flight crew licence document.
+
+
+
+
+
+                     </div>
+                  </div>
+               </div>
+                 </div>
+                 <div class="au-form-group casa-view-only">
+    <div style="padding-bottom: 1.5rem">
+    <p><a href="../licence-reprint-v2/licence-reprint-summary.html">Request a licence reprint</a></div>
+          </div>
+
+
+          <div class="au-form-group">
+                       <div class="au-table__wrapper">
+                         <table class="au-table au-table--striped">
+                               <caption class="au-table__caption">Licence holder details</caption>
+                               <thead class="au-table__head">
+                                   <tr class="au-table__row">
+                                       <th scope="col" class="au-table__header au-table__header--width-33">Name</th>
+                                       <th scope="col" class="au-table__header au-table__header--width-66">Abbey Ray Spence</th>
+                                   </tr>
+                               </thead>
+                               <tbody class="au-table__body">
+                                   <tr class="au-table__row">
+                                       <td class="au-table__cell">ARN and licence number</td>
+                                       <td class="au-table__cell">1234567</td>
+                                         <td class="au-table__cell"> </td>
+                                   </tr>
+                                   <tr class="au-table__row">
+                                       <td class="au-table__cell">Date of birth</td>
+                                       <td class="au-table__cell">11/10/1981</td>
+                                       <td class="au-table__cell"> </td>
+                                   </tr>
+                                   <tr class="au-table__row">
+                                       <td class="au-table__cell">Nationality</td>
+                                       <td class="au-table__cell">Australian</td>
+                                       <td class="au-table__cell"> </td>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                       </div>
+
+<div class="au-form-group">
+<div class="au-table__wrapper">
+    <table class="au-table au-table--striped">
+        <caption class="au-table__caption">Licence and aircraft category rating</caption>
+        <thead class="au-table__head">
+            <tr class="au-table__row">
+                <th scope="col" class="au-table__header au-table__header--width-33">Licence</th>
+                <th scope="col" class="au-table__header au-table__header--width-33">Category rating</th>
+                <th scope="col" class="au-table__header au-table__header--numeric au-table__header--width-33">Granted date</th>
+            </tr>
+        </thead>
+                <tbody class="au-table__body">
+            <tr class="au-table__row">
+                <td class="au-table__cell">Recreational Pilot Licence</td>
+                <td class="au-table__cell">Aeroplane</td>
+                <td class="au-table__cell au-table__cell--numeric">17/07/2020</td>
+              
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+<div class="au-form-group">
+<div class="au-table__wrapper">
+<table class="au-table au-table--striped">
+    <caption class="au-table__caption">Aircraft ratings and endorsements</caption>
+    <thead class="au-table__head">
+        <tr class="au-table__row">
+            <th scope="col" class="au-table__header au-table__header--width-33">Class ratings</th>
+            <th scope="col" class="au-table__header au-table__header--width-33">Category rating</th>
+            <th scope="col" class="au-table__header au-table__header--numeric au-table__header--width-33">Granted date</th>
+		</tr>
+    </thead>
+    <tbody class="au-table__body">
+        <tr class="au-table__row">
+            <td class="au-table__cell">Single-engine</td>
+            <td class="au-table__cell">Aeroplane</td>
+            <td class="au-table__cell au-table__cell--numeric">25/06/2020</td>
+		</tr>
+		  </tbody>
+</table>
+    </div>
+</div>
+
+    <!--<div class="au-form-group">
+<div class="au-table__wrapper">
+	<table class="au-table au-table--striped">
+    <thead class="au-table__head">
+        <tr class="au-table__row">
+            <th scope="col" class="au-table__header au-table__header au-table__header--width-50">Type ratings</th>
+            <th scope="col" class="au-table__header au-table__header--numeric au-table__header--width-25">Granted date</th>
+            <th scope="col" class="au-table__header au-table__header--numeric au-table__header--width-25">Valid to</th>
+		</tr>
+    </thead>
+    <tbody class="au-table__body">
+        <tr class="au-table__row">
+            <td class="au-table__cell">AS332/EC225</td>
+            <td class="au-table__cell au-table__cell--numeric">29/07/1999</td>
+            <td class="au-table__cell au-table__cell--numeric"><i><span class="casa-lapsed">31/08/2014</span></td>
+		</tr>
+		  <tr class="au-table__row">
+            <td class="au-table__cell">BH212/412</td>
+              <td class="au-table__cell au-table__cell--numeric">24/03/1991</td>
+              <td class="au-table__cell au-table__cell--numeric"><span class="casa-lapsed">31/08/2014</span></td>
+			</tr>
+			<tr class="au-table__row">
+            <td class="au-table__cell">SK76</td>
+                <td class="au-table__cell au-table__cell--numeric">05/04/2018</td>
+                <td class="au-table__cell au-table__cell--numeric">30/04/2020</td>
+		    </tr>
+        <tr class="au-table__row">
+            <td class="au-table__cell">AS365/EC155</td>
+            <td class="au-table__cell au-table__cell--numeric">24/03/1991</td>
+            <td class="au-table__cell au-table__cell--numeric"><span class="casa-lapsed">31/08/2014</span></td>
+		    </tr>
+		</tbody>
+</table>
+</div>
+</div>
+
+    <div class="au-form-group">
+<div class="au-table__wrapper">
+	<table class="au-table au-table--striped">
+    <thead class="au-table__head">
+        <tr class="au-table__row">
+            <th scope="col" class="au-table__header">Design feature endorsements</th>
+		</tr>
+    </thead>
+    <tbody class="au-table__body">
+        <tr class="au-table__row">
+            <td class="au-table__cell">Manual propeller pitch control</td>
+		</tr>
+		  <tr class="au-table__row">
+            <td class="au-table__cell">Float alighting gear</td>
+			</tr>
+			<tr class="au-table__row">
+            <td class="au-table__cell">Retractable undercarriage</td>
+		    </tr>
+        <tr class="au-table__row">
+            <td class="au-table__cell">Gas turbine engine</td>
+		    </tr>
+		</tbody>
+</table>
+</div>
+</div>
+
+
+
+<div class="au-form-group">
+<div class="au-table__wrapper">
+<table class="au-table au-table--striped">
+    <caption class="au-table__caption">Operational ratings and endorsements</caption>
+    <thead class="au-table__head">
+        <tr class="au-table__row">
+            <th scope="col" class="au-table__header au-table__header au-table__header--width-50">Instrument ratings</th>
+            <th scope="col" class="au-table__header au-table__header--numeric numeric au-table__header--width-25">Granted date</th>
+            <th scope="col" class="au-table__header au-table__header--numeric numeric au-table__header--width-25">Valid to</th>
+		</tr>
+    </thead>
+    <tbody class="au-table__body">
+        <tr class="au-table__row">
+            <td class="au-table__cell">Multi engine helicopter</td>
+            <td class="au-table__cell au-table__cell--numeric">29/07/1999</td>
+            <td class="au-table__cell au-table__cell--numeric">30/04/2020</td>
+		</tr>
+        <tr class="au-table__row">
+            <td class="au-table__cell">Instrument approach 2 dimensional</td>
+            <td class="au-table__cell au-table__cell--numeric">29/07/1999</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+		</tr>
+        <tr class="au-table__row">
+            <td class="au-table__cell">Instrument approach 3 dimensional</td>
+            <td class="au-table__cell au-table__cell--numeric">29/07/1999</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+		</tr>
+		  </tbody>
+</table>
+    </div>
+</div>
+
+
+    <div class="au-form-group">
+<div class="au-table__wrapper">
+	<table class="au-table au-table--striped">
+    <thead class="au-table__head">
+        <tr class="au-table__row">
+            <th scope="col" class="au-table__header au-table__header au-table__header--width-25">Flight instructor ratings</th>
+            <th scope="col" class="au-table__header au-table__header au-table__header--numeric numeric au-table__header--width-25">Category rating</th>
+            <th scope="col" class="au-table__header au-table__header au-table__header--numeric numeric au-table__header--width-25">Granted date</th>
+            <th scope="col" class="au-table__header au-table__header au-table__header--numeric numeric au-table__header--width-25">Valid to</th>
+		</tr>
+    </thead>
+    <tbody class="au-table__body">
+        <tr class="au-table__row">
+            <td class="au-table__cell">Flight instructor rating</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+            <td class="au-table__cell au-table__cell--numeric">31/03/1980</td>
+            <td class="au-table__cell au-table__cell--numeric"><span class="casa-lapsed">31/03/1981</span></td>
+		</tr>
+        <tr class="au-table__row">
+            <td class="au-table__cell">Grade 3 training</td>
+            <td class="au-table__cell au-table__cell--numeric">Aeroplane</td>
+            <td class="au-table__cell au-table__cell--numeric">31/03/1980</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+		</tr>
+		  <tr class="au-table__row">
+            <td class="au-table__cell">Night visual flight rules training</td>
+              <td class="au-table__cell au-table__cell--numeric">Aeroplane</td>
+              <td class="au-table__cell au-table__cell--numeric">31/03/1980</td>
+              <td class="au-table__cell au-table__cell--numeric">N/A</td>
+			</tr>
+			<tr class="au-table__row">
+            <td class="au-table__cell">Single engine class rating training endorsement</td>
+                <td class="au-table__cell au-table__cell--numeric">Aeroplane</td>
+                <td class="au-table__cell au-table__cell--numeric">31/03/1980</td>
+                <td class="au-table__cell au-table__cell--numeric">N/A</td>
+		    </tr>
+        <tr class="au-table__row">
+            <td class="au-table__cell">Design feature training</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+            <td class="au-table__cell au-table__cell--numeric">31/03/1980</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+		    </tr>
+		</tbody>
+</table>
+</div>
+</div>
+
+    <div class="au-form-group">
+<div class="au-table__wrapper">
+	<table class="au-table au-table--striped">
+    <thead class="au-table__head">
+        <tr class="au-table__row">
+            <th scope="col" class="au-table__header">Low level ratings</th>
+            <th scope="col" class="au-table__header au-table__header--numeric numeric au-table__header--width-25">Granted date</th>
+            <th scope="col" class="au-table__header au-table__header--numeric numeric au-table__header--width-25">Valid to</th>
+		</tr>
+    </thead>
+    <tbody class="au-table__body">
+        <tr class="au-table__row">
+            <td class="au-table__cell">Helicopter</td>
+            <td class="au-table__cell au-table__cell--numeric">24/03/1991</td>
+            <td class="au-table__cell au-table__cell--numeric"><span class="casa-lapsed">31/03/1992</span></td>
+		</tr>
+        <tr class="au-table__row">
+            <td class="au-table__cell">Sling operations training</td>
+            <td class="au-table__cell au-table__cell--numeric">24/03/1991</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+		</tr>
+		  <tr class="au-table__row">
+            <td class="au-table__cell">Winching and rappelling training</td>
+              <td class="au-table__cell au-table__cell--numeric">24/03/1991</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+			</tr>
+		</tbody>
+</table>
+</div>
+</div>
+
+    <div class="au-form-group">
+<div class="au-table__wrapper">
+	<table class="au-table au-table--striped">
+    <thead class="au-table__head">
+        <tr class="au-table__row">
+            <th scope="col" class="au-table__header au-table__header--width-25">Flight activity endorsements</th>
+            <th scope="col" class="au-table__header au-table__header--numeric numeric au-table__header--width-25">Category rating</th>
+            <th scope="col" class="au-table__header au-table__header--numeric numeric au-table__header--width-25">Granted date</th>
+            <th scope="col" class="au-table__header au-table__header--numeric numeric au-table__header--width-25">Valid to</th>
+		</tr>
+    </thead>
+    <tbody class="au-table__body">
+        <tr class="au-table__row">
+            <td class="au-table__cell">Formation flying</td>
+            <td class="au-table__cell au-table__cell--numeric">Aeroplane</td>
+            <td class="au-table__cell au-table__cell--numeric">24/03/1991</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+		</tr>
+        <tr class="au-table__row">
+            <td class="au-table__cell">Spinning</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+            <td class="au-table__cell au-table__cell--numeric">24/03/1991</td>
+            <td class="au-table__cell au-table__cell--numeric">N/A</td>
+		</tr>
+		</tbody>
+</table>
+</div>
+</div>
+
+-->
+                 <div class="au-form-group">
+<div class="au-table__wrapper">
+<table class="au-table au-table--striped">
+    <caption class="au-table__caption">Flight review and proficiency check - Aircraft ratings and operational ratings</caption>
+    <thead class="au-table__head">
+        <tr class="au-table__row">
+            <th scope="col" class="au-table__header au-table__header--width-50">Aircraft category flight review</th>
+            <th scope="col" class="au-table__header au-table__header--numeric au-table__header--width-33">Valid to</th>
+		</tr>
+    </thead>
+    <tbody class="au-table__body">
+        <tr class="au-table__row">
+            <td class="au-table__cell">Single-engine aeroplane</td>
+            <td class="au-table__cell au-table__cell--numeric">31/06/2022</td>
+		</tr>
+		  </tbody>
+</table>
+    </div>
+</div>
+         
+          <div class="au-form-group">
+<div class="au-table__wrapper">
+    <table class="au-table au-table--striped">
+        <caption class="au-table__caption">English language proficiency</caption>
+        <thead class="au-table__head">
+        <tr class="au-table__row">
+            <th scope="col" class="au-table__header au-table__header--width-50">Proficiency rating</th>
+            <th scope="col" class="au-table__header au-table__header--numeric au-table__header--width-50">Granted date</th>
+		</tr>
+        </thead>
+        <tbody class="au-table__body">
+        <tr class="au-table__row">
+			<td class="au-table__cell"><abbr title="Aviation English Language Proficiency">AELP</abbr> Level 6</td>
+	        <td class="au-table__cell au-table__cell--numeric">07/09/2020</td>
+	</tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+				<div class="au-form-group">
+                <a class="au-direction-link" href="javascript:history.back()">
+					<span class="au-direction-link__arrow au-direction-link__arrow--left" aria-hidden="true"></span>Return to myCASA
+					</a>
+
+
+				</div>
+
+
+            </div>
+
+
+            </div>
+         </div>
+                    <div class="footer">
+<div class="banner">
+				<div class="container">
+					<div class="row">
+					 <div class="col-xs-12">
+				We are always looking for ways to improve our services. <a href="feedback.html">Please provide feedback on myCASA</a>.
+				</div>
+				</div>
+			</div>
+		</div>
+            <div class="footer-wrapper">
+               <iframe src="../mycasa-src-4.0/footer.html" frameborder="0" border="0" scrolling="no"></iframe>
+            </div>
+         </div>
+      </main>
+   </body>
+</html>

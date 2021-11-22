@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://mygovid.gov.au/AuthSpa.UI/index.html#loginRequest -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+    <title>Login request | myGovID</title>
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="theme-color" content="#254351">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- If you add a stylesheet here, make sure you add it to the gruntfile too-->
+    <link rel="stylesheet" href="./Login request _ myGovID_files/styles.css">
+    <script type="text/javascript" src="../mycasa-src-3.0/js/designsystem.min.js"></script>
+      <script type="text/javascript" src="../mycasa-src-3.0/js/jquery.min.js"></script>
+      <script type="text/javascript" src="../mycasa-src-3.0/js/jquery.js"></script>
+	  <script type="text/javascript" src="va.js"></script>       <script type="text/javascript">
+         /* page specific js */
+
+         $(document).ready(function() {
+
+
+                $("#casa-loader").css("width",$("#casa-load").width());
+                $("#casa-loader").css("height",$("#casa-load").height());
+
+
+                setInterval(function(){
+
+                    //location.href="dashboard-bob-load1.html";
+                    location.href="loading-casa-5.html";
+
+               },5000);
+
+
+         });
+      </script>
+</head>
+<body style="">
+    <noscript>
+        <h3>Javascript is disabled</h3>
+        <p>This application requires Javascript. Please enable Javascript in your browser settings.</p>
+    </noscript>
+    
+  <nav class="navbar navbar navbar-default mygovid-header">
+
+        <div style="display: flex;justify-content: center;">
+            <div>
+                <img src="mygovid-icon.png" width="200">
+                  </div>
+            
+        </div>
+
+</nav><script id="errorMessageTemplate" type="text/html">
+    <span data-bind="if: field.isModified() && !field.isValid() ">
+        <span class="icon icon-error error" data-bind="text: field.error"></span>
+    </span>
+</script><section id="content" class="main" role="main">
+    <div class="page-host" data-bind="router: { }"><div class="durandal-wrapper" data-view="views/loginRequest" data-active-view="true" style=""><section id="content" class="main">
+    <form role="form">
+        <div class="feature-box-stripe mygovid-lighter-div">
+            <section class="feature-box layout-content-box">
+                <div class="container-fluid">
+                    <fieldset>
+                        <div class="row mygovid-row">
+                            <div class="mygovid-panel">
+                                <div class="flex-container">
+                                    <div><img class="accept-code" src="./Login request _ myGovID_files/mygovid_sentcode.png" alt="Accept code with myGovID app"></div>
+                                    <ol>
+                                        <li>Open myGovID on your phone</li>
+                                        <li>Accept or enter the code</li>                                                                             
+                                        <li class="ref-code"><span class="sentcode" data-bind="text:refCode">9087</span><span class="wait"><img src="loading-pin.gif" width="50"></span><br><span class="wait">Waiting...</span></li>
+                                        <li>Come back</li>
+                                        <button id="cancelRequest" type="button" class="btn btn-link mygovid-btn-link" title="Cancel" data-bind="click: cancel">Cancel</button> 
+                                    </ol>
+                                </div>                               
+                                                           
+                            </div>                                                       
+                        </div>
+                    </fieldset>
+                </div>
+            </section>
+        </div>
+    </form>
+</section><div data-bind="widget: {kind: &#39;twoOptionModal&#39;, heading: consts.cancelHeading, okClick: login, okTitle: &#39;Try again&#39;, cancelClick: cancelErrorDialog, cancelTitle: &#39;Cancel&#39;, showModal: showCancelDialog, body: consts.cancelBody}"><div data-view="widgets/twoOptionModal/view" data-active-view="true" style="">
+    <div class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-modal="true" data-bind="modal:showModal, attr:{&#39;aria-labelledby&#39;:dialogId() + &#39;_label&#39;, &#39;aria-describedby&#39;: dialogId() + &#39;_desc&#39;}" aria-labelledby="77528_label" aria-describedby="77528_desc">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bind="click: cancel, visible:showCancel"><span data-bind="attr:{&#39;title&#39;: cancelTitle}" aria-hidden="true" title="Cancel">×</span></button>
+                    <h3 data-bind="text:heading, attr:{id: dialogId() + &#39;_label&#39;}" id="77528_label">Login declined</h3>
+                </div>
+                <div class="modal-body">
+                    <div data-bind="html:body, attr:{id: dialogId() + &#39;_desc&#39;}" id="77528_desc"><p>Your login request was declined. Try again.</p></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-bind="attr:{title: cancelTitle, &#39;aria-label&#39;: cancelTitle}, text: cancelTitle, click: cancel, visible:showCancel" title="Cancel" aria-label="Cancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bind="attr:{title: okTitle, &#39;arial-label&#39;: okTitle}, text: okTitle, click: ok, visible: showOk" title="Try again" arial-label="Try again">Try again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div><div data-bind="widget: {kind: &#39;twoOptionModal&#39;, heading: consts.timeoutHeading, okClick: login, okTitle: &#39;Try again&#39;, cancelClick: cancelErrorDialog, cancelTitle: &#39;Cancel&#39;, showModal: showTimeoutDialog, body: consts.timeoutBody}"><div data-view="widgets/twoOptionModal/view" data-active-view="true" style="">
+    <div class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-modal="true" data-bind="modal:showModal, attr:{&#39;aria-labelledby&#39;:dialogId() + &#39;_label&#39;, &#39;aria-describedby&#39;: dialogId() + &#39;_desc&#39;}" aria-labelledby="31114_label" aria-describedby="31114_desc">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bind="click: cancel, visible:showCancel"><span data-bind="attr:{&#39;title&#39;: cancelTitle}" aria-hidden="true" title="Cancel">×</span></button>
+                    <h3 data-bind="text:heading, attr:{id: dialogId() + &#39;_label&#39;}" id="31114_label">Login timeout</h3>
+                </div>
+                <div class="modal-body">
+                    <div data-bind="html:body, attr:{id: dialogId() + &#39;_desc&#39;}" id="31114_desc"><p>Your login request has timed out. Try again.</p></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-bind="attr:{title: cancelTitle, &#39;aria-label&#39;: cancelTitle}, text: cancelTitle, click: cancel, visible:showCancel" title="Cancel" aria-label="Cancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bind="attr:{title: okTitle, &#39;arial-label&#39;: okTitle}, text: okTitle, click: ok, visible: showOk" title="Try again" arial-label="Try again">Try again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div></div></div>
+</section><footer id="Footer" class="footer mygovidfooter" role="contentinfo">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <p>myGovID is a new way to prove your identity and login online.</p>
+                <p><a href="https://www.mygovid.gov.au/" target="_blank">Visit myGovID</a> to find out more.</p>
+            </div>            
+        </div>
+    </div>
+</footer><div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal_header" aria-describedby="modal_desc" aria-modal="true" data-bind="modal:showSessionExpiredDialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bind="click: sessionExpiredCancel"><span title="Cancel" aria-hidden="true">×</span></button>
+                <h3 id="modal_header">Session expired</h3>
+            </div>
+            <div class="modal-body" id="modal_desc">
+                <div>
+                    <p>For security reasons and to protect your personal data, your session expired after 60 minutes of inactivity.</p>
+                    <p>You will need to start again, select continue to proceed.</p>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="submit" class="btn btn-primary" data-dismiss="modal" aria-label="Continue" title="Continue" data-bind="click: sessionExpiredCancel">Continue</button>
+            </div>
+        </div>
+    </div>
+</div></div></div>
+
+    <script type="text/javascript">
+        // The applicationHost div is hidden by default so that the progress bar does not show if javascript is disabled.
+        document.getElementById('applicationHost').style.display = 'inherit';
+    </script>
+
+    <script type="text/javascript" src="./Login request _ myGovID_files/config.js"></script>    <script src="./Login request _ myGovID_files/main.js"></script>
+    <!-- build:js:debug app/build/main-processed.js -->
+    <!-- /build -->
+</body></html>

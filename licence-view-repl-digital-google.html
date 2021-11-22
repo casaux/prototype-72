@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>myCASA</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="initial-scale=1">
+      <link rel="stylesheet" href="../mycasa-src-4.0/css/designsystem.min.css">
+      <link rel="stylesheet" href="../mycasa-src-4.0/css/casa.css">
+      <script type="text/javascript" src="../mycasa-src-4.0/js/designsystem.min.js"></script>
+      <script type="text/javascript" src="../mycasa-src-4.0/js/jquery.min.js"></script>
+      <script type="text/javascript" src="../mycasa-src-4.0/js/jquery.js"></script>
+      <script type="text/javascript">
+         /* page specific js */
+
+         $(document).ready(function() {
+
+           $("#apple").bind("click",function(){
+               $("#loading").css("display","block");
+
+               setInterval(function(){
+                 $("#loading").css("display","none");
+                 $("#wallet").css("display","block");
+               }, 5000);
+
+
+
+                //
+
+           });
+
+
+
+
+
+            $("#wallet").bind("click",function(){
+                $(this).css("display","none");
+            });
+
+         });
+      </script>
+      <style type="text/css">
+         /* page specific css */
+         #wallet{position:absolute;top:0;left:0;z-index:99999;display:none;bottom:0;right:0;background:#fff;}
+         #loading{background:rgba(0,0,0,0.2);position:absolute;top:0;left:0;z-index:99999;display:none;right:0;bottom:0}
+         #loading p{font-size:1.3rem;line-height:1.5rem;padding:1rem !important;background:#5c5c5c;color:#fff;font-weight:bold;width:250px;display:block; border-radius: 5px;text-align:center;margin:300px auto auto auto !important;}
+
+         #loading img{animation: rotation 2s infinite linear;}
+
+         @keyframes rotation {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(359deg);
+            }
+          }
+
+      </style>
+   </head>
+   <body class="live-demo au-body au-grid">
+            <div class="casa-modal">
+   		   <div class="casa-modal-inner">
+   			   <div class="casa-modal-header">
+   				  <h3>Digital view of your remote pilot licence</h3>
+
+   				   <div class="casa-modal-close"><a href="javascript:history.back(-1);"><span>Close</span></a></div>
+
+
+   			   </div>
+   			   				<div class="casa-modal-body">
+
+                    <!--<p><strong>Note that this is only a view of your remote pilot licence and you may not exercise the privileges of your remote pilot licence unless you are in possession of your remote pilot licence document.</strong></p>-->
+                                
+                                <p>There are two parts of the digital remote pilot licence.</p>
+
+                    <p>The first part is what you see inside Google Pay on your phone and contains a QR code that allows someone to verify and see the details of your licence as they appear on the CASA system.</p>
+
+                    <p>The second part is all the details of your remote pilot licence as appears on your paper licence. To access this view, follow the instructions below.</p>
+
+                    <p><strong>Tap the "Details" button at the bottom of your screen</strong></p>
+
+<p><img src="wallet-details-button.png" /></p>
+
+  <p><strong>Scroll down to see all the details of your licence.</strong></p>
+
+<p><img src="wallet-details-repl.png" /></p>
+
+<p>You can add your digital remote pilot licence to Google Pay below. </p>
+
+<p class="au-callout"><strong>
+  By adding your digital remote pilot licence to Google Pay, you consent for the Civil Aviation Safety Authority to disclose the information in your digital view of your remote pilot licence to Google servers, which may be located outside Australia. You are also consenting to your details being verified through the QR code on the front of the digital rempote pilot licence to anyone you show the digital remote pilot licence to.
+
+
+</strong>
+
+</p>
+<br />
+<a href="loading-google-2.html"><img src="Save-to-Google-Pay-English-(Dark).svg" style="width:100%"></a>
+
+<div class="au-form-group">
+                                <a href="javascript:history.back(-1);" class="au-btn au-btn--secondary">Close</a>
+                                </div>
+                  </div>
+   			 </div>
+   	   </div>
+      <main class="au-grid">
+         <div class="header">
+            <div class="container">
+               <div class="row">
+                  <div class="logo au-body au-body--dark">
+                     <a href="../flight-review/index.html"><img src="../mycasa-src-3.0/img/CASALOGO-white-i.svg"></a>
+                  </div>
+                  </div>
+            </div>
+         </div>
+         <div class="body">
+
+<div id="loading">
+<p>Loading licence.<br /> Please wait...<br />
+  <img src="loader.png">
+</div>
+<div id="wallet"><img src="apple.png"></div>
+
+			<div class="banner">
+				<div class=container>
+					<div class="row">
+					 <div class="col-md-12">
+				This service is currently in beta, we encourage you to <a href="../flight-review/feedback.html">provide feedback</a>
+				</div>
+				</div>
+			</div>
+		</div>
+         <div class="container">
+               <nav class="au-breadcrumbs" aria-label="breadcrumb">
+                  <ul class="au-link-list au-link-list--inline">
+                     <li><a href="#">myCASA</a></li>
+                     <li>Remote pilot licence (<abbr title="Remote pilot licence">RePL</abbr>)</li>
+                  </ul>
+               </nav>
+
+
+			 <div class="casa-section">
+               <header class="au-header" role="banner">
+                  <h1 class="break desktop au-header-heading">Remote pilot licence (<abbr title="Remote pilot licence">RePL</abbr>)</h1>
+				   				   <a class="au-direction-link" href="javascript:history.back()">
+					<span class="au-direction-link__arrow au-direction-link__arrow--left" aria-hidden="true"></span>Back
+					</a>
+               </header>
+
+
+               <div class="au-form-group casa-mobile-only">
+
+<a class="au-btn au-btn--secondary" href="repl-licence-view-single-digital.html">Download digital view of licence for Apple Wallet</a>
+<!--
+  <div id="apple"><a href="#"><img src="Add_to_Apple_Wallet_rgb_US-UK.svg"></a><br></div>
+  <a href="#"><img src="Save to Google Pay - English (Dark).svg"></a>-->
+
+  </div>
+                 <div class="au-form-group casa-mobile-only">
+
+<a class="au-btn au-btn--secondary" href="repl-licence-view-single-digital-google.html">Download digital view of licence for Google Pay</a>
+<!--
+  <div id="apple"><a href="#"><img src="Add_to_Apple_Wallet_rgb_US-UK.svg"></a><br></div>
+  <a href="#"><img src="Save to Google Pay - English (Dark).svg"></a>-->
+
+  </div>
+
+
+<div class="au-form-group">
+<div class="au-table__wrapper">
+    <table class="au-table au-table--striped">
+        <caption class="au-table__caption"><abbr title="Remotely piloted aircraft">RPA</abbr> category and type</caption>
+        <thead class="au-table__head">
+            <tr class="au-table__row">
+                <th scope="col" class="au-table__header au-table__header--width-33"><abbr title="Remotely piloted aircraft">RPA</abbr> category</th>
+                <th scope="col" class="au-table__header au-table__header--width-33">Weight class / capacity</th>
+                <th scope="col" class="au-table__header au-table__header--width-33 au-table__header--numeric">Granted date</th>
+            </tr>
+        </thead>
+        <tbody class="au-table__body">
+          <!--<tr class="au-table__row">
+              <td class="au-table__cell">Powered lift</td>
+              <td class="au-table__cell">Up to 7kg</td>
+              <td class="au-table__cell  au-table__cell--numeric">12/06/2019</td>
+          </tr>-->
+            <tr class="au-table__row">
+                <td class="au-table__cell">Multi-rotor</td>
+                <td class="au-table__cell">Up to 25kg</td>
+                <td class="au-table__cell  au-table__cell--numeric">24/03/2019</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+				<div class="au-form-group">
+                <a class="au-direction-link" href="javascript:history.back()">
+					<span class="au-direction-link__arrow au-direction-link__arrow--left" aria-hidden="true"></span>Return to myCASA
+					</a>
+
+
+				</div>
+
+
+            </div>
+
+
+            </div>
+         </div>
+                    <div class="footer">
+<div class="banner">
+				<div class="container">
+					<div class="row">
+					 <div class="col-xs-12">
+				We are always looking for ways to improve our services. <a href="feedback.html">Please provide feedback on myCASA</a>.
+				</div>
+				</div>
+			</div>
+		</div>
+            <div class="footer-wrapper">
+               <iframe src="../mycasa-src-4.0/footer.html" frameborder="0" border="0" scrolling="no"></iframe>
+            </div>
+         </div>
+      </main>
+   </body>
+</html>

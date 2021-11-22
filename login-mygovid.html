@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://mygovid.gov.au/AuthSpa.UI/index.html#login -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+    <title>Login | myGovID</title>
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="theme-color" content="#254351">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- If you add a stylesheet here, make sure you add it to the gruntfile too-->
+    <link rel="stylesheet" href="./Login-myGovID_files/styles.css">
+</head>
+<body style="">
+    <noscript>
+        <h3>Javascript is disabled</h3>
+        <p>This application requires Javascript. Please enable Javascript in your browser settings.</p>
+    </noscript>
+<nav class="navbar navbar navbar-default mygovid-header">
+
+        <div style="display: flex;justify-content: center;">
+            <div>
+                <img src="mygovid-icon.png" width="200">
+                  </div>
+            
+        </div>
+
+</nav>
+
+
+
+                        <div class="row mygovid-row">
+                            <div class="mygovid-panel">
+                                <div class="page-sub-header" aria-labelledby="page-header">
+                                    <h2 id="page-sub-header"><span class="mygovid-highlight-word">Get the</span> <span class="mygovid-white-word">myGovID app</span></h2>
+                                </div>
+                                <p>
+                                    Prove who you are and get a code to login with the myGovID app.
+                                    <br>
+                                    Download the app now to get started.
+                                    </p><div class="instructions downloadlink-img" style="padding-top: 8px;" data-bind="visible: showAppStoreUrl() || showGooglePlayUrl()"><a href="https://apps.apple.com/au/app/mygovid/id1397699449" target="_blank" data-bind="attr:{href:appStoreUrl},visible:showAppStoreUrl()"><img class="downloadlink-img" src="./Login-myGovID_files/app_store.png" alt="Download myGovID app"></a><a href="https://play.google.com/store/apps/details?id=au.gov.ato.mygovid.droid" target="_blank" data-bind="attr:{href:googlePlayUrl},visible:showGooglePlayUrl()"><img class="downloadlink-img downloadlink-img-right" src="./Login-myGovID_files/google_play.png" alt="Download myGovID app"></a></div>
+                                <p></p>
+                                <div class="flex-container">
+                                    <div class="iphone-img"><img class="iphone-img" src="./Login-myGovID_files/mygovid-thumbprint.png" alt="myGovId app">
+                                    </div>
+                                    <ol class="instructions">
+                                        <li class="instructions title">What's next?</li>
+                                        <li class="instructions firstItem item">Download the app</li>
+                                        <li class="instructions">Prove who you are</li>
+                                        <li class="instructions">Come back and login</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+               
+
+
+        <div class="feature-box-stripe">
+            <section class="feature-box layout-content-box">
+                <div class="container-fluid">
+                    <fieldset>
+                        <div class="row mygovid-row">
+                            <div class="mygovid-login-panel">
+                                <div class="page-sub-header" aria-labelledby="page-header">
+                                    <h2 id="page-sub-header"><span class="mygovid-highlight-word">Already have the</span> <span class="mygovid-white-word">myGovID app?</span></h2>
+                                </div>
+                                <p>
+                                    Login with your myGovID email to continue.
+                                </p>
+                                <br>
+                                <div data-bind="widget: {kind:&#39;errors&#39;, serviceError: serviceError, dataIcon: &#39;x&#39;}, visible: showServiceError" style="display: none;"><div data-view="widgets/errors/view" data-active-view="true" style="">
+    <div id="serviceErrors">
+        <div class="alert alert-block alert-danger" data-bind="attr:{&#39;data-icon&#39;: dataIcon}" role="alert" aria-labelledby="serviceErrorTitle" aria-describedby="serviceErrorDescription" data-icon="x">
+            <h4 id="serviceErrorTitle" data-bind="html: serviceErrorTitle"><span class="sr-only">Error</span>undefined</h4>
+            <div id="serviceErrorDescription" data-bind="html: serviceErrorDescription"></div>
+        </div>
+    </div>
+</div></div>
+                                <div>
+                                    <div class="view-desktop input-group">
+                                        <input required="" id="usernameInput" type="text" autocorrect="off" spellcheck="false" class="form-control" placeholder="myGovID email" aria-labelledby="usernameInputLabel" data-bind="validationOptions: {insertMessages: false}, textInput: name, attr:{&#39;aria-invalid&#39;: ariaInvalid}, enterkey: submit" aria-live="assertive" aria-atomic="true" aria-invalid="true">
+
+                                        <span class="span-desktop input-group-btn">
+                                            <a href="enter-pin-5.html" class="btn pull-right mygovid-btn-primary" data-bind="text:submitText, enable:submitEnabled" title="Submit" disabled="">Login</a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="div-mobile">
+                                    <a href="enter-pin-5.html" class="btn pull-right mygovid-btn-primary-mobile" data-bind="text:submitText, enable:submitEnabled" title="Submit" disabled="">Login</a>
+                                </div>
+
+                                <div id="usernameInputError" data-bind=" foreach: errList">
+                                    <label aria-live="polite" aria-atomic="true"><span class="icon icon-error error" data-bind="validationMessage: $parent.name" style="display: none;"></span></label>
+                                </div>
+                                <div class="form-group checkbox declaration">
+                                    <input id="rememberMeInput" class="form-control" type="checkbox" data-bind="checked: rememberMe">
+                                    <label id="rememberMeLabel" for="rememberMeInput" class="icon icon-tick">Remember me</label>
+                                    <button id="cancelAuth" type="button" class="btn btn-link mygovid-btn-link pull-right" data-bind="click: cancelAuth" title="Cancel">Cancel</button>
+                                </div>
+                                <div tabindex="0" class="myGovButton" data-bind="click: displayRedirectionModal">
+                                    <div>myGovID is different to </div>
+                                    <img class="" src="./Login-myGovID_files/mygovlogo.png" alt="myGov" style="width: 84px;">
+                                    <span class="icon icon-arrow-right" style="float: right;"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </section>
+        </div>
+    </form>
+</section><!--<div data-bind="widget: {kind: &#39;myGovModal&#39;, heading: consts.redirectToMyGovHeading, cancelClick: cancelMyGovRedirection, cancelTitle: &#39;Dismiss&#39;, showModal: showMyGovRedirection, myGovUrl: myGovUrl()}"><div data-view="widgets/myGovModal/view" data-active-view="true" style="">
+    <div class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-modal="true" data-bind="modal:showModal, attr:{&#39;aria-labelledby&#39;:dialogId() + &#39;_label&#39;, &#39;aria-describedby&#39;: dialogId() + &#39;_desc&#39;}" aria-labelledby="96353_label" aria-describedby="96353_desc">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bind="click: cancel, visible:showCancel"><span data-bind="attr:{&#39;title&#39;: cancelTitle}" aria-hidden="true" title="Dismiss">×</span></button>
+                    <h2 data-bind="text:heading, attr:{id: dialogId() + &#39;_label&#39;}" id="96353_label">myGovID is different to myGov</h2>
+                </div>
+                <div class="modal-body">
+                    <div data-bind="attr:{id: dialogId() + &#39;_desc&#39;}" id="96353_desc">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6 col-lg-6">
+                                <div><img src="./Login-myGovID_files/mygovid_app_logo.png" alt="myGovID icon" style="height: 71px; width: 143px;"></div>
+                                <h3>myGovID</h3>
+                                <p>Your myGovID lets you prove who you are when using government online services.</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6 col-lg-6">
+                                <div><img src="./Login-myGovID_files/mygov_app_logo.png" alt="myGov icon" style="height: 71px; width: 71px;"></div>
+                                <h3>myGov</h3>
+                                <p>Your myGov account lets you select and link to government online services from the one place.</p>
+                                <p><a href="https://mygovid.gov.au/AuthSpa.UI/index.html#" data-bind="click: goToMyGov,visible: showMyGovUrl()" rel="external">Visit myGov <span class="icon icon-external-link"><span class="sr-only">Link opens in new window</span></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" data-bind="attr:{title: cancelTitle, &#39;aria-label&#39;: cancelTitle}, text: cancelTitle, click: cancel, visible:showCancel" title="Dismiss" aria-label="Dismiss">Dismiss</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div>--></div></div>
+</section><footer id="Footer" class="footer mygovidfooter" role="contentinfo">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <p>myGovID is a new way to prove your identity and login online.</p>
+                <p><a href="https://www.mygovid.gov.au/" target="_blank">Visit myGovID</a> to find out more.</p>
+            </div>            
+        </div>
+    </div>
+</footer><div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal_header" aria-describedby="modal_desc" aria-modal="true" data-bind="modal:showSessionExpiredDialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-bind="click: sessionExpiredCancel"><span title="Cancel" aria-hidden="true">×</span></button>
+                <h3 id="modal_header">Session expired</h3>
+            </div>
+            <div class="modal-body" id="modal_desc">
+                <div>
+                    <p>For security reasons and to protect your personal data, your session expired after 60 minutes of inactivity.</p>
+                    <p>You will need to start again, select continue to proceed.</p>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="submit" class="btn btn-primary" data-dismiss="modal" aria-label="Continue" title="Continue" data-bind="click: sessionExpiredCancel">Continue</button>
+            </div>
+        </div>
+    </div>
+</div></div></div>
+
+    <script type="text/javascript">
+        // The applicationHost div is hidden by default so that the progress bar does not show if javascript is disabled.
+        document.getElementById('applicationHost').style.display = 'inherit';
+    </script>
+
+    <script type="text/javascript" src="./Login-myGovID_files/config.js"></script>    <script src="./Login-myGovID_files/main.js"></script>
+    <!-- build:js:debug app/build/main-processed.js -->
+    <!-- /build -->
+</body></html>

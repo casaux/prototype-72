@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>myCASA</title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="initial-scale=1">
+      <link rel="stylesheet" href="../mycasa-src-3.0/css/designsystem.min.css">
+      <link rel="stylesheet" href="../mycasa-src-3.0/css/casa.css"><link rel="stylesheet" href="style.css">
+      <script type="text/javascript" src="../mycasa-src-3.0/js/designsystem.min.js"></script>
+      <script type="text/javascript" src="../mycasa-src-3.0/js/jquery.min.js"></script>
+      <script type="text/javascript" src="../mycasa-src-3.0/js/jquery.js"></script>
+	  <script type="text/javascript" src="va.js"></script>       <script type="text/javascript">
+         /* page specific js */
+
+         $(document).ready(function() {
+
+
+                $("#casa-loader").css("width",$("#casa-load").width());
+                $("#casa-loader").css("height",$("#casa-load").height());
+
+
+                setInterval(function(){
+
+                    //location.href="dashboard-bob-load1.html";
+                    location.href="login-mygovid.html";
+
+               },3000);
+
+
+         });
+      </script>
+      <style type="text/css">
+         /* page specific css */
+
+          .container{position: relative;}
+          #casa-loader{position: absolute;top:0;left:0;background:rgba(255,255,255,0.9);width:600px;height:300px;z-index:999;text-align: center;}
+          #casa-loader h2{margin-top:0;padding-top:0;}
+          #casa-load{height:600px;}
+
+      </style>
+   </head>
+   <body class="live-demo au-body au-grid">
+      <main class="au-grid">
+         <!--<div class="header">
+            <div class="container">
+               <div class="row">
+                  <div class="logo au-body au-body--dark">
+                     <a href="index.html"><img src="../mycasa-src/img/CASALOGO-white-i.svg"></a>
+                  </div>
+                  <div class="casa-menu">
+
+                  	<div id="dropdown-menu">
+						<div id="dd-menu"><a class="au-btn au-btn--dark menu" href="#"><img src="../mycasa-src/img/menu.png" height="20" />Menu</a></div>
+						<div id="dd-close"><a class="au-btn au-btn--dark menu" href="#"><img src="../mycasa-src/img/close.png" height="20" />Close</a><br />
+						<br />
+						<p id="mycasa-home"><a href="#">myCASA home</a></p>
+						<p><a href="dashboard-select.html">Switch profile</a></p>
+						<p><a href="mycasa-signed-out.html">Sign out</a></p>
+						</div>
+
+
+                  </div>
+               </div></div>
+            </div>
+         </div>
+         <div class="body">
+			<div class="banner">
+				<div class=container>
+					<div class="row">
+					 <div class="col-md-12">
+				This service is currently in beta, we encourage you to <a href="feedback.html">provide feedback</a>
+				</div>
+				</div>
+			</div>
+		</div>-->
+         <div class="container" id="casa-load">
+
+
+<div id="casa-loader"><img src="bars.gif" width="250" height="30"><h2>You're being redirected to myGovID</h2></div>
+
+
+
+<!--
+
+            </div>
+         </div>
+          <div class="footer">
+
+            <div class="footer-wrapper">
+               <iframe src="../mycasa-src/footer.html" frameborder="0" border="0" scrolling="no"></iframe>
+            </div>
+         </div>-->
+      </main>
+   </body>
+</html>

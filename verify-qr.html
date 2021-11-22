@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>myCASA</title>
+
+   <script type="text/javascript" src="../mycasa-src-3.0/js/jquery.min.js"></script>
+   <script type="text/javascript" src="../mycasa-src-3.0/js/jquery.js"></script>
+
+
+      <script type="text/javascript">
+         /* page specific js */
+
+         $(document).ready(function() {
+
+
+            if(window.parent.window.location.hash=="#repl"){
+               $("img").attr("src","verify-repl.jpg");
+            }  else {
+               $("img").attr("src","verify.jpg");
+            }
+
+
+         });
+      </script>
+      <style type="text/css">
+         /* page specific css */
+
+
+
+      </style>
+   </head>
+
+
+<body>
+  <a href="verified-details-interstitial.html"><img src="verify.jpg" style='height: 100%; width: 100%; object-fit: contain'/></a>
+</body>
+</html>
